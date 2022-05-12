@@ -2,26 +2,27 @@
 <html>
   <head>
     <title>Kyrillische Umwandlung</title>
+  <!-- script async src="./index.js"></script> -->
   </head>
   <body>
     <h1 style="padding-left: 10%; padding-right: 10%">Deutschen Text in kyrillische Buchstaben umwandeln.</h1>
-    <textarea rows="15" cols="15" placeholder="Deutschen Text einfügen" id="txtInput"  onfocus="this.select(); convertStrings();" onkeyup="convertStrings();" autocomplete="off" autofocus style="width: 80%; display: block; margin-left: auto; margin-right: auto; padding: 1%;"></textarea>
+    <textarea rows="15" cols="15" placeholder="Deutschen Text einfügen" id="txtInput"  onfocus="convertStrings();" onkeyup="convertStrings();" autocomplete="off" autofocus style="width: 80%; display: block; margin-left: auto; margin-right: auto; padding: 1%;"></textarea> <!-- this.select(); -->
     <p/>
-    <textarea rows="15" cols="15" placeholder="Kyrillischer Text" id="txtOutput" onfocus="this.select(); convertStrings();" onclick="convertStrings();" autocomplete="off" style="width: 80%; display: block; margin-left: auto; margin-right: auto; padding: 1%;"></textarea>
+    <textarea rows="15" cols="15" placeholder="Kyrillischer Text" id="txtOutput" onfocus="convertStrings();" onclick="convertStrings();" autocomplete="off" style="width: 80%; display: block; margin-left: auto; margin-right: auto; padding: 1%;"></textarea>
   </body>
   
 <script>
 // https://www.russianlessons.net/lessons/lesson1_main.php
 convertStrings = function(){
-	to = [  "Ю",  "ю",  "Я",  "я",  "Ё",  "ё",    "Ч",    "ч",   "Жа",   "жа",   "Жу",   "жу",   "Ши",   "ши",   "Шo",   "шo",   "Ще",   "ще",   "Щ",   "щ",  "Ц",  "ц", "Ку", "ку", "К", "к", "Й", "й", "Й", "й", "А", "а", "К", "к", "М", "м", "O", "o", "Т", "т", "В", "в", "В", "в", "Е", "е", "Н", "н", "Р", "р", "С", "с", "У", "у", "Х", "х", "Б", "б", "Г", "г", "Д", "д", "З", "з", "И", "и", "Л", "л", "П", "п", "Ф", "ф", "Э", "э", "КС", "кс"];
-	fr = [ "Ju", "ju", "Ja", "ja", "Jo", "jo", "Tsch", "tsch", "Scha", "scha", "Schu", "schu", "Schi", "schi", "Scho", "scho", "Sche", "sche", "Sch", "sch", "Ts", "ts", "Qu", "qu", "C", "c", "J", "j", "Y", "y", "A", "a", "K", "k", "M", "m", "O", "o", "T", "t", "V", "v", "W", "W", "E", "e", "N", "n", "R", "r", "S", "s", "U", "u", "H", "h", "B", "b", "G", "g", "D", "d", "Z", "z", "I", "i", "L", "l", "P", "p", "F", "f", "Ä", "ä",  "X",  "x"];
+  to = [  "Ю",  "ю",  "Я",  "я",  "Ё",  "ё",    "Ч",    "ч",   "Жа",   "жа",   "Жу",   "жу",   "Ши",   "ши",   "Шo",   "шo",   "Ще",   "ще",   "Щ",   "щ",  "Ц",  "ц", "Ку", "ку", "К", "к", "Й", "й", "Й", "й", "А", "а", "К", "к", "М", "м", "O", "o", "Т", "т", "В", "в", "cc", "Е", "е", "Н", "н", "Р", "р", "С", "с", "У", "у", "Х", "х", "Б", "б", "Г", "г", "Д", "д", "З", "з", "И", "и", "Л", "л", "П", "п", "Ф", "ф", "Э", "э", "КС", "кс"];
+  fr = [ "Ju", "ju", "Ja", "ja", "Jo", "jo", "Tsch", "tsch", "Scha", "scha", "Schu", "schu", "Schi", "schi", "Scho", "scho", "Sche", "sche", "Sch", "sch", "Ts", "ts", "Qu", "qu", "C", "c", "J", "j", "Y", "y", "A", "a", "K", "k", "M", "m", "O", "o", "T", "t", "V", "v",  "ß", "E", "e", "N", "n", "R", "r", "S", "s", "U", "u", "H", "h", "B", "b", "G", "g", "D", "d", "Z", "z", "I", "i", "L", "l", "P", "p", "F", "f", "Ä", "ä",  "X",  "x"];
 
-	newTextValue = document.getElementById("txtInput").value;
-	
-	for (let i = 0; i < fr.length; i++) {
-	  newTextValue = newTextValue.replace(new RegExp(fr[i], "g"), to[i]);
-	}
-	document.getElementById("txtOutput").value = newTextValue;
+  newTextValue = document.getElementById("txtInput").value;
+  
+  for (let i = 0; i < fr.length; i++) {
+    newTextValue = newTextValue.replace(new RegExp(fr[i], "g"), to[i]);
+  }
+  document.getElementById("txtOutput").value = newTextValue;
 }
 </script>
 
