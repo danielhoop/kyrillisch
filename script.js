@@ -16,11 +16,11 @@ convertStrings = function(){
   newTextValue = document.getElementById("txtInput").value;
   if (newTextValue == "")
     return null;
-  
+
   for (let i = newTextValue.length; i >= 0; i--) {
 	ths = newTextValue.substr(i, 1);
 	thsOrig = ths;
-	
+
 	if (i + 1 < newTextValue.length) {
 		nxt = newTextValue.substr(i+1, 1);
 	} else {
@@ -31,13 +31,13 @@ convertStrings = function(){
 	// } else {
 	// 	nxt2 = " ";
 	// }
-	
+
 	if (i - 1 >= 0) {
 	  prv = newTextValue.substr(i-1, 1);
 	} else {
 		prv = " ";
 	}
-	
+
     // Analyze the letter after this one
 	if (i + 1 < newTextValue.length) {
 	  
@@ -54,10 +54,9 @@ convertStrings = function(){
 		  }
 	  }
 	}
-	
+
 	// Analyse the letter bevore this one.
 	if (i - 1 >= 0) {
-
 	  // Is first letter of word.
       //if (prv == " ") {
       //  if (ths == "S" && nxt == "t") {
@@ -80,7 +79,7 @@ convertStrings = function(){
 		  }
 	  }
 	}
-	
+
 	// If the latter has changed, then replace it in the original string.
     if (ths != thsOrig) {
 		if (i + 1 < newTextValue.length) {
@@ -90,7 +89,7 @@ convertStrings = function(){
 		}
 	}
   }
-  
+
   // Replace all normal rules (without consideration of next and previous).
   for (let i = 0; i < fr.length; i++) {
     newTextValue = newTextValue.replace(new RegExp(fr[i], "g"), to[i]);
